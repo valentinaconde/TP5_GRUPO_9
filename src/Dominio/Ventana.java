@@ -34,6 +34,10 @@ public class Ventana extends JFrame {
 		menuBar.add(mnNewMenu);
 		
 		JMenuItem mntmNewMenuItem = new JMenuItem("Agregar");
+		mntmNewMenuItem.addActionListener(e -> {
+		    VentanaAgregar ventanaAgregar = new VentanaAgregar();
+		    ventanaAgregar.setVisible(true);
+		});
 		mnNewMenu.add(mntmNewMenuItem);
 		
 		JMenuItem mntmNewMenuItem_1 = new JMenuItem("Listar");
