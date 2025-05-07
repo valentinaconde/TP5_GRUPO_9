@@ -8,6 +8,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import java.awt.Font;
 
@@ -18,7 +19,7 @@ public class VentanaAgregar extends JFrame {
 	private JTextField tfNombre;
 	private JLabel lblID;
     private static int ID=1;
-	
+	private JComboBox<String> cbGenero;
 	
 
 	/**
@@ -70,8 +71,13 @@ public class VentanaAgregar extends JFrame {
 		lblGenero.setBounds(67, 136, 46, 14);
 		contentPane.add(lblGenero);
 		
-		JComboBox<?> cbGenero = new JComboBox();
-		cbGenero.setBounds(279, 132, 30, 22);
+		 cbGenero = new JComboBox<String>();
+	        cbGenero.setModel(new DefaultComboBoxModel<String>(new String[] {
+	            "Acción", "Aventura", "Comedia", "Drama", "Terror", "Ciencia Ficción", "Romance", "Animación"
+	        }));
+		
+		
+		cbGenero.setBounds(184, 132, 125, 22);
 		contentPane.add(cbGenero);
 		
 		JButton btnAceptar = new JButton("Aceptar");
@@ -89,13 +95,15 @@ public class VentanaAgregar extends JFrame {
 	
 	private void accionAceptar() {
 		 String nombre = tfNombre.getText().trim();
-
+		 String generoSeleccionado = (String) cbGenero.getSelectedItem();
+		 
 		    if (nombre.isEmpty()) {
 		        javax.swing.JOptionPane.showMessageDialog(this, "Debe ingresar un nombre.", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
 		        return;
 		    }
-			ID++;
-		lblID.setText(""+ID);
-		tfNombre.setText("");
+		    ID++;
+	        lblID.setText(""+ID);
+	        tfNombre.setText("");
+	        cbGenero.setSelectedIndex(0); 
 	}
 }
