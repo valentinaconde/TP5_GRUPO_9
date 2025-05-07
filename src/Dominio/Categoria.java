@@ -1,18 +1,17 @@
 package Dominio;
 
 public class Categoria {
-    private int id;
+    
     private String nombre;
 
-    public int getId() {
-        return id;
-    }
+    
+    
+    public Categoria(String nombre) {
+		super();
+		this.nombre = nombre;
+	}
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getNombre() {
+	public String getNombre() {
         return nombre;
     }
 

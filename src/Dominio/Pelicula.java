@@ -9,7 +9,14 @@ public class Pelicula {
         return id;
     }
 
-    public void setId(int id) {
+    public Pelicula(int id, String nombre, Categoria categoria) {
+		super();
+		this.id = id;
+		this.nombre = nombre;
+		this.categoria = categoria;
+	}
+
+	public void setId(int id) {
         this.id = id;
     }
 

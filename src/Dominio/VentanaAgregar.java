@@ -9,6 +9,7 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import java.awt.Font;
 
@@ -20,6 +21,9 @@ public class VentanaAgregar extends JFrame {
 	private JLabel lblID;
     private static int ID=1;
 	private JComboBox<String> cbGenero;
+	private DefaultListModel<Pelicula> dlModel;
+	private Pelicula pelicula;
+	private Categoria categoria;
 	
 
 	/**
@@ -73,7 +77,7 @@ public class VentanaAgregar extends JFrame {
 		
 		 cbGenero = new JComboBox<String>();
 	        cbGenero.setModel(new DefaultComboBoxModel<String>(new String[] {
-	            "Acción", "Aventura", "Comedia", "Drama", "Terror", "Ciencia Ficción", "Romance", "Animación"
+	            "Seleccione un genero","Terror","Acción", "Suspenso", "Romantica"
 	        }));
 		
 		
@@ -101,6 +105,15 @@ public class VentanaAgregar extends JFrame {
 		        javax.swing.JOptionPane.showMessageDialog(this, "Debe ingresar un nombre.", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
 		        return;
 		    }
+		    if (generoSeleccionado.equals("Seleccione un genero")) {
+		    	javax.swing.JOptionPane.showMessageDialog(this, "Debe seleccionar un genero", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+		        return;
+			}
+		    categoria=new Categoria(generoSeleccionado);
+		    pelicula= new Pelicula(ID,nombre,categoria);
+		    dlModel= new DefaultListModel<Pelicula>();
+		    dlModel.addElement(pelicula);
+		    
 		    ID++;
 	        lblID.setText(""+ID);
 	        tfNombre.setText("");
