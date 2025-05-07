@@ -3,6 +3,7 @@ package Dominio;
 
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
@@ -85,12 +86,16 @@ public class VentanaAgregar extends JPanel {
 			}
 		    categoria=new Categoria(generoSeleccionado);
 		    pelicula= new Pelicula(ID,nombre,categoria);
-		    dlModel= new DefaultListModel<Pelicula>();
+		    
 		    dlModel.addElement(pelicula);
 		    
 		    ID++;
 	        lblID.setText(""+ID);
 	        tfNombre.setText("");
 	        cbGenero.setSelectedIndex(0); 
+	}
+	public void setDefaultListModel(DefaultListModel<Pelicula> listModelRecibido)
+	{
+		this.dlModel = listModelRecibido;
 	}
 }
