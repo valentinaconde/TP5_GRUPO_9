@@ -3,6 +3,8 @@ package Dominio;
 import java.awt.BorderLayout;
 //import java.awt.EventQueue;
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
@@ -61,8 +63,22 @@ public class Ventana extends JFrame {
 		mnNewMenu.add(mntmNewMenuItem);
 		
 		JMenuItem mntmNewMenuItem_1 = new JMenuItem("Listar");
+		mntmNewMenuItem_1.addActionListener(new ActionListener() {
+			
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				contentPane.removeAll();
+				VentanaListar panel = new VentanaListar();
+				panel.setDefaultListModel(dlModel);
+				contentPane.add(panel);
+				contentPane.repaint();
+				contentPane.revalidate();
+				
+				
+			}
+		});
 		mnNewMenu.add(mntmNewMenuItem_1);
-
+		
 	}
 
 }

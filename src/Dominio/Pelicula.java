@@ -1,6 +1,6 @@
 package Dominio;
 
-public class Pelicula {
+public class Pelicula implements Comparable<Pelicula>{ 
     private int id;
     private String nombre;
     private Categoria categoria; 
@@ -35,4 +35,16 @@ public class Pelicula {
     public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
     }
+
+	@Override
+	public String toString() {
+		return nombre + "  " + categoria.getNombre();
+	}
+
+	@Override
+	public int compareTo(Pelicula obj) {
+		// TODO Auto-generated method stub
+		return this.nombre.compareToIgnoreCase(obj.nombre);
+	}
+    
 }
